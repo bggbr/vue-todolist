@@ -15,10 +15,10 @@ import TodoList from "./components/TodoList.vue";
 
 export default {
   components: {
-    TodoHeader: TodoHeader,
-    TodoInput: TodoInput,
-    TodoList: TodoList,
-    TodoFooter: TodoFooter
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter
   }
 };
 </script>

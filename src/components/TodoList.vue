@@ -1,14 +1,15 @@
 <template>
   <section>
     <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem">
-        <i class="checkBtn fas fa-check"></i>{{ todoItem }}
+      <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem">
+        <i class="checkBtn fas fa-check"></i>
+        {{ todoItem }}
         <span
           class="removeBtn"
           type="button"
-          @click="removeTodo(todoItem, index)"
+          v-on:click="removeTodo(todoItem, index)"
         >
-          <i class="fas fa-trash"></i
+          <i class="fas fa-trash" aria-hidden="true"></i
         ></span>
       </li>
     </ul>
@@ -26,6 +27,12 @@ export default {
       for (var i = 0; i < localStorage.length; i++) {
         this.todoItems.push(localStorage.key(i));
       }
+    }
+  },
+  methods: {
+    removeTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
     }
   }
 };
