@@ -23,6 +23,7 @@ export default {
     if (localStorage.length > 0) {
       for (var i = 0; i < localStorage.length; i++) {
         this.todoItems.push(localStorage.key(i));
+        console.log("localStorage.key(i) =", localStorage.key(i));
       }
     }
   },
